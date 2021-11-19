@@ -1,0 +1,30 @@
+@charset 'UTF-8';
+.table_nhapkho{
+    border-collapse: collapse;
+    width: 100%;
+
+}
+/* .table_nhapkho, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+  }
+
+  .table_nhapkho thead th{
+    font-size: 15px;
+    background-color: rgb(150, 209, 190);
+    color: #0a0202;
+}
+  .table_xuathang{
+    border-collapse: collapse;
+    width: 100%;
+
+}
+.table_xuathang, th, td {
+    border: 1px solid black;
+    border-collapse: collapse ;
+    padding: 5px;
+}
+  .container-fluid{
+      padding-top: 50px;
+  } */

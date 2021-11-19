@@ -1,25 +1,37 @@
 import logo from './logo.svg';
 import './App.css';
+import {Fragment,useReducer} from 'react'
+import Context from './Context'
 
+import {BrowserRouter as Router,
+  Routes,
+  Route} from "react-router-dom";
+  import Login from './Login';
+  import Home from './Home';
 function App() {
+  const store = {
+    IsLogIn:false,
+    UserInfo:null,
+  }
+  const reducer = (state,action) => {
+    switch (action.type){
+      case "isLogin": return {...state,IsLogIn:!state.IsLogIn};
+      case "UserInfo": return {...state,UserInfo:action.payload};
+      default: return state
+    }
+  }
+  const [state,setState] = useReducer(reducer,store);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+<Context.Provider value={[state,setState]}>
+  <Router>
+       <Routes>
+       <Route exact path="/" element={<Login/>}/>
+        <Route exact path="/Home" element={<Home/>}/>
+      </Routes>
+
+     </Router> 
+</Context.Provider>)
+  
 }
 
 export default App;
